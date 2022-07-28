@@ -2,7 +2,7 @@
 
 class cowsandbulls {
 public:
-	void cowscounter(int b[4], int a[4], int& c) { // считает и выводит кол-во коров
+	int cowscounter(int b[4], int a[4], int& c) { // считает и выводит кол-во коров
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				if (b[i] == a[j]) {
@@ -10,14 +10,16 @@ public:
 				}
 			}
 		}
+		return c;
 	};
-	void bullscounter(int b[4], int a[4], int& c) { // считает и выводит кол-во быков
+	int bullscounter(int b[4], int a[4], int& c) { // считает и выводит кол-во быков
 		for (int i = 0; i < 4; ++i) {
 			std::cin >> b[i];
 			if (b[i] == a[i]) {
 				c = c + 1;
 			}
 		}
+		return c;
 	};
 	int computer_number(int a[4]) { // функция, благодаря которой компьютер загадывает число
 		for (int i = 0; i < 4; ++i) {
@@ -50,7 +52,7 @@ int main() {
 	} std::cout << "\n";
 	int b[4];
 	int c = 0;
-	int d = 0;	
+	int d = 0;
 	std::cout << "the computer guessed the number, try to guess it" << std::endl;
 	do {
 		cowsandbulls c1;
@@ -71,43 +73,43 @@ int main() {
 	int a1[4];
 	int result[4];
 	int counter = 0;
-do {
-
-	do{
-		for (int i = 0; i < 4; ++i) {
-			a1[i] = rand() % 9;
-			counter++;
-		}
-	} while (a1[3] != ur[3]);
-	result[3] = a1[3];
-	c1 = 1;
-
 	do {
-		for (int i = 0; i < 3; ++i) {
-			a1[i] = rand() % 9;
-			counter++;
-		}
-	} while (a1[2] != ur[2]);
-	result[2] = a1[2];
-	c1 = 2;
 
-	do {
-		for (int i = 0; i < 2; ++i) {
-			a1[i] = rand() % 9;
-			counter++;
-		}
-	} while (a1[1] != ur[1]);
-	result[1] = a1[1];
-	c1 = 4;
+		do {
+			for (int i = 0; i < 4; ++i) {
+				a1[i] = rand() % 9;
+				counter++;
+			}
+		} while (a1[3] != ur[3]);
+		result[3] = a1[3];
+		c1 = 1;
 
-	do {
-		for (int i = 0; i < 1; ++i) {
-			a1[i] = rand() % 9;
-			counter++;
-		}
-	} while (a1[0] != ur[0]);
-	result[0] = a1[0];
-	c1 = 4;
+		do {
+			for (int i = 0; i < 3; ++i) {
+				a1[i] = rand() % 9;
+				counter++;
+			}
+		} while (a1[2] != ur[2]);
+		result[2] = a1[2];
+		c1 = 2;
+
+		do {
+			for (int i = 0; i < 2; ++i) {
+				a1[i] = rand() % 9;
+				counter++;
+			}
+		} while (a1[1] != ur[1]);
+		result[1] = a1[1];
+		c1 = 4;
+
+		do {
+			for (int i = 0; i < 1; ++i) {
+				a1[i] = rand() % 9;
+				counter++;
+			}
+		} while (a1[0] != ur[0]);
+		result[0] = a1[0];
+		c1 = 4;
 	} while (c1 != 4); // цикл, в котором компьютер угадывает число игрока
 	std::cout << "computer guessed ur number! it is:" << std::endl;
 	for (int i = 0; i < 4; ++i) {
