@@ -2,26 +2,28 @@
 
 class cowsandbulls {
 public:
-	int cowscounter(int b[4], int a[4], int& c) { // считает и выводит кол-во коров
+	int cowscounter(int b[4], int a[4]) const { // считает и выводит кол-во коров
+		int c = 0;
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				if (b[i] == a[j]) {
-					c = c + 1;
+					c++;
 				}
 			}
 		}
 		return c;
 	};
-	int bullscounter(int b[4], int a[4], int& c) { // считает и выводит кол-во быков
+	int bullscounter(int b[4], int a[4]) const { // считает и выводит кол-во быков
+		int c = 0;
 		for (int i = 0; i < 4; ++i) {
 			std::cin >> b[i];
 			if (b[i] == a[i]) {
-				c = c + 1;
+				c++;
 			}
 		}
 		return c;
 	};
-	int computer_number(int a[4]) { // функция, благодаря которой компьютер загадывает число
+	int computer_number(int a[4]) const { // функция, благодаря которой компьютер загадывает число
 		for (int i = 0; i < 4; ++i) {
 			a[i] = 1 + rand() % 9;
 			for (int j = 0; j < i; j++)
@@ -33,7 +35,7 @@ public:
 		}
 		return 0;
 	};
-	int your_number(int a[4]) { // функция, благодаря которой игрок загадывает число
+	int your_number(int a[4]) const { // функция, благодаря которой игрок загадывает число
 		for (int i = 0; i < 4; ++i) {
 			std::cin >> a[i];
 		}
@@ -56,8 +58,8 @@ int main() {
 	std::cout << "the computer guessed the number, try to guess it" << std::endl;
 	do {
 		cowsandbulls c1;
-		c1.bullscounter(b, a, c);
-		c1.cowscounter(b, a, d);
+		c = c1.bullscounter(b, a);
+		d = c1.cowscounter(b, a);
 		if (c != 4) {
 			std::cout << c << " bulls" << std::endl;
 			std::cout << d << " cows" << std::endl;
