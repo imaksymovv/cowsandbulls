@@ -23,7 +23,7 @@ public:
 		}
 		return c;
 	};
-	int computer_number(int a[4]) const { // функция, благодаря которой компьютер загадывает число
+	void computer_number(int a[4]) const { // функция, благодаря которой компьютер загадывает число
 		for (int i = 0; i < 4; ++i) {
 			a[i] = 1 + rand() % 9;
 			for (int j = 0; j < i; j++)
@@ -33,13 +33,11 @@ public:
 					} while (a[i] == a[j]);
 				}
 		}
-		return 0;
 	};
-	int your_number(int a[4]) const { // функция, благодаря которой игрок загадывает число
+	void your_number(int a[4]) const { // функция, благодаря которой игрок загадывает число
 		for (int i = 0; i < 4; ++i) {
 			std::cin >> a[i];
 		}
-		return 0;
 	};
 };
 
